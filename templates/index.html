@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="title-box outer-shadow">
+            <div class="title-img">
+                <img src="{{ url_for('static', filename='assets/title.png') }}" alt="Title">
+            </div>
+            <div class="score">
+                <h2>Score</h2>
+                <p>Wins: <span id="wins">{{ wins }}</span></p>
+                <p>Losses: <span id="losses">{{ losses }}</span></p>
+                <p>Ties: <span id="ties">{{ ties }}</span></p>
+            </div>
+        </div>
+        <div class="button-container">
+            <form id="choice-form" action="/play" method="post">
+                <!-- Rock -->
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='assets/rock.png') }}" alt="Rock" onclick="submitChoice('rock');" style="cursor: pointer;">
+                </div>
+
+                <!-- Paper -->
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='assets/paper.png') }}" alt="Paper" onclick="submitChoice('paper');" style="cursor: pointer;">
+                </div>
+
+                <!-- Scissors -->
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='assets/scissors.png') }}" alt="Scissors" onclick="submitChoice('scissors');" style="cursor: pointer;">
+                </div>
+            </form>
+        </div>
+        {% if result %}
+        <div class="result-container">
+            <div class="user-img">
+            <img src="{{ url_for('static', filename='assets/' + user_choice + '.png') }}" alt="{{ user_choice }}">
+            <p>Player </p>
+            </div>
+
+            <div class="play-again">
+                <p>{{ result }}</p>
+                <a href="/reset">Reset</a>
+            </div>
+
+            <div class="com-img">
+            <img src="{{ url_for('static', filename='assets/' + computer_choice + '.png') }}" alt="{{ computer_choice }}">
+            <p>Comp</p>
+            </div>
+        </div>
+        
+        {% endif %}
+    </div>
+
+    <script>
+        function submitChoice(choice) {
+            document.getElementById('choice-form').innerHTML += '<input type="hidden" name="choice" value="' + choice + '">';
+            document.getElementById('choice-form').submit();
+        }
+        
+    </script>
+</body>
+</html>

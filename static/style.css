@@ -1,0 +1,140 @@
+/* style.css */
+:root{
+  --bg:#DFEFF6;
+  --outer-shadow:3px 3px 3px #d0d0d0, -3px -3px 3px #f8f8f8;
+  --outer-shadow-0:0 0 0 #d0d0d0, 0 0 0 #f8f8f8;
+  --inner-shadow: inset 3px 3px 3px #d0d0d0, inset -3px -3px 3px #f8f8f8;  
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: radial-gradient(
+    134.34% 134.34% at 50% 0%,
+    #1f3757 0%,
+    #131537 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+h1, h2 {
+  margin-bottom: 20px;
+}
+.outer-shadow{
+  width:335px;
+  height:115px;
+  box-shadow: var(--inner-shadow);
+}
+.title-box{
+  /* box-shadow: var(--inner-shadow); */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border:1px solid white;
+  margin-bottom: 2rem;
+  border-radius:10px;
+  padding: 10px 20px;
+}
+.title-img img{
+  width: 100px;
+  height: auto;
+}
+.score {
+  color: white;
+  margin-bottom: 30px;
+}
+.score #losses{
+  color: red;
+}
+.score #wins{
+  color: greenyellow;
+}
+.score #ties{
+  color: yellow;
+}
+.score p {
+  margin:1px;
+}
+
+.button-container {
+  margin-bottom: 30px;
+}
+
+.image-container img {
+  width: 100px;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+.image-container img:hover{
+  transform: scale(1.05);
+}
+form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:20px;
+}
+button{
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 0 10px;
+  cursor: pointer;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.result-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap:30px;
+  color: white;
+  margin-bottom: 20px;
+  width: 300px; 
+  height: 100px;
+}
+.result-container img{
+  width:100px;
+  height: auto;
+}
+.user-img{
+  
+}
+.play-again {
+  margin-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+  background-color: #008CBA; /* Blue */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+a:hover {
+  background-color: #005f6b;
+}
+
+/* Define a keyframe animation */
+@keyframes example {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Apply the animation to an element */
+.result-container img {
+  animation: example 1s infinite;
+}

@@ -1,0 +1,23 @@
+result.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Result</h2>
+        <div class="result-container">
+            <p>User's Choice: {{ user_choice }}</p>
+            <p>{{ result }}</p>
+            <p>Computer's Choice: {{ computer_choice }}</p>
+        </div>
+        <div class="play-again">
+            <a href="/">Play Again</a>
+        </div>
+    </div>
+</body>
+</html>
